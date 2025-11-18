@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: #ffffff; color: #0a0a0a; transition: background 0.25s ease, color 0.25s ease; }
+
+/* ---------- DARK MODE ---------- */
+body.dark { background:#050814; color:#e4e9ff; }
+body.dark .hero { background: radial-gradient(circle at top left, #1a2448 0, #050814 55%); }
+body.dark .courses,
+body.dark .ai,
+body.dark .achievements { background:#050814; }
+body.dark .section-title,
+body.dark .ach-title { color:#f0f3ff; }
+body.dark .section-subtitle,
+body.dark .ach-subtitle,
+body.dark .course-desc,
+body.dark .ach-card-text { color:#b8c1ff; }
+body.dark .course-card,
+body.dark .ach-card { background:#0e1330; box-shadow: 0 18px 40px rgba(0,0,0,0.6); }
+body.dark .impact-header { background:#335dff; }
+body.dark .impact { color:#e4e9ff; }
+body.dark .stat { background:#0e1330; }
+body.dark .footer { background:#050814; border-top:1px solid #1a1f3f; }
+body.dark .top-nav { background:rgba(5,8,20,0.88); border-bottom:1px solid #1a1f3f; }
+body.dark .top-menu a { color:#c7d2ff; }
+body.dark .top-menu a:hover,
+body.dark .top-menu a.active { background:#335dff; color:#fff; }
+body.dark .top-logo { color:#f0f3ff; }
+body.dark .theme-btn { background:#1a2348; color:#ffd66b; }
+body.dark .brand span { color:#4b7cff; }
+body.dark .copy { color:#a5b0ff; }
+
+/* ---------- FIXED MENU ---------- */
+.top-nav {
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:1000;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #e3e6ff;
+}
+.top-nav-inner {
+  max-width:1200px;
+  margin:0 auto;
+  padding:12px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.top-logo { font-size:22px; font-weight:800; color:#0a0a0a; }
+.top-logo span { color:#2f73ff; }
+
+.top-menu { display:flex; gap:18px; font-size:14px; }
+.top-menu a {
+  text-decoration:none;
+  color:#3d4663;
+  padding:7px 12px;
+  border-radius:999px;
+  transition:0.2s ease;
+}
+.top-menu a:hover {
+  background:#2f73ff;
+  color:#fff;
+}
+.top-menu a.active {
+  background:#2f73ff;
+  color:#fff;
+}
+
+.theme-btn {
+  font-size:18px;
+  background:#e6ebff;
+  border:none;
+  border-radius:999px;
+  padding:6px 12px;
+  cursor:pointer;
+  transition:0.2s ease;
+}
+.theme-btn:hover { transform:scale(1.1); }
+
+/* ---------- HERO (анимируется сразу при загрузке) ---------- */
+.hero {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  min-height:100vh;
+  padding:140px 120px 80px; /* отступ сверху под меню */
+  gap:40px;
+  background:#ffffff;
+}
+.content { max-width:600px; animation: fadeInLeft 0.9s ease-out both; }
+.logo { font-size:48px; font-weight:400; color:#0a0a0a; margin:0 0 40px; }
+.logo span { color:#0066ff; font-weight:700; }
+.headline { font-size:28px; font-weight:800; line-height:1.3; color:#1a2340; margin:0 0 24px; }
+.instructors { display:flex; align-items:center; gap:16px; margin:0 0 28px; }
+.left-img { width:180px; height:auto; display:block; animation: fadeInScale 0.8s ease-out 0.3s both; }
+.subtext { font-size:14px; color:#1a2340; }
+.btn-container { margin-top:12px; }
+.start-btn {
+  background:#0066ff;
+  color:#fff;
+  border:none;
+  border-radius:25px;
+  padding:10px 24px;
+  font-size:14px;
+  cursor:pointer;
+  transition:background .2s ease, transform .2s ease, box-shadow .2s ease;
+  box-shadow:0 8px 18px rgba(0,102,255,0.35);
+}
+.start-btn:hover { background:#004bcc; transform:translateY(-2px); box-shadow:0 12px 26px rgba(0,102,255,0.42); }
+.right-img { width:420px; height:auto; border-radius:20px; display:block; animation: fadeInRight 0.9s ease-out 0.2s both; }
+
+/* ---------- Ключевые анимации ---------- */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to { opacity:1; transform:translateY(0); }
+}
+@keyframes fadeInScale {
+  from { opacity:0; transform:scale(0.9); }
+  to { opacity:1; transform:scale(1); }
+}
+@keyframes fadeInRight {
+  from { opacity:0; transform:translateX(30px); }
+  to { opacity:1; transform:translateX(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity:0; transform:translateX(-30px); }
+  to { opacity:1; transform:translateX(0); }
+}
+
+/* ---------- Базовое состояние секций для скролл-анимаций ---------- */
+[data-animate-section] {
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+[data-animate-section].in-view {
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ---------- КУРСЫ ---------- */
+.courses { text-align:center; padding:100px 80px; background:#ffffff; }
+.section-title { font-size:36px; font-weight:400; color:#1a2340; margin:0 0 10px; }
+.section-title span { font-weight:800; color:#0a0a7a; }
+.section-subtitle { font-size:16px; color:#3d4663; max-width:720px; margin:0 auto 56px; line-height:1.6; }
+
+.course-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:40px;
+  justify-items:center;
+}
+.course-card {
+  background:#f9fbff;
+  border-radius:16px;
+  padding:40px 24px 32px;
+  max-width:300px;
+  text-align:left;
+  transition:transform .3s ease, box-shadow .3s ease, opacity .3s ease;
+  opacity:0;
+}
+.courses.in-view .course-card { animation: fadeUp 0.8s ease-out forwards; }
+.courses.in-view .course-card:nth-child(1) { animation-delay:0.1s; }
+.courses.in-view .course-card:nth-child(2) { animation-delay:0.2s; }
+.courses.in-view .course-card:nth-child(3) { animation-delay:0.3s; }
+.courses.in-view .course-card:nth-child(4) { animation-delay:0.4s; }
+.course-card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 10px 20px rgba(0, 0, 0, 0.08);
+}
+.course-img {
+  display:block;
+  height:80px;
+  width:auto;
+  object-fit:contain;
+  margin:0 0 18px 8px;
+  transform:translateX(-6px);
+}
+.badge-row { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+.badge {
+  font-size:12px;
+  font-weight:700;
+  color:#fff;
+  background:#0a58ff;
+  padding:5px 10px;
+  border-radius:6px;
+}
+.badge-outline { background:transparent; border:2px solid #0a58ff; color:#0a58ff; }
+.course-title { font-size:18px; font-weight:700; color:#1a2340; margin:10px 0; }
+.course-desc { font-size:14px; color:#3a4466; line-height:1.5; }
+
+/* --- Наше влияние --- */
+.impact { margin-top:80px; text-align:center; }
+.impact-header {
+  display:inline-block;
+  background:#2f73ff;
+  color:#fff;
+  padding:12px 36px;
+  border-radius:12px;
+  font-weight:700;
+  margin-bottom:40px;
+}
+.impact-stats {
+  display:flex;
+  justify-content:center;
+  gap:28px;
+  flex-wrap:wrap;
+}
+.stat {
+  background:#0a1f66;
+  color:#fff;
+  padding:20px 36px;
+  border-radius:12px;
+  font-size:14px;
+  text-align:center;
+  font-weight:500;
+  min-width:130px;
+  opacity:0;
+}
+.courses.in-view .stat { animation: fadeUp 0.7s ease-out forwards; }
+.courses.in-view .stat:nth-child(1) { animation-delay:0.3s; }
+.courses.in-view .stat:nth-child(2) { animation-delay:0.4s; }
+.courses.in-view .stat:nth-child(3) { animation-delay:0.5s; }
+.courses.in-view .stat:nth-child(4) { animation-delay:0.6s; }
+.number { font-size:22px; font-weight:800; color:#2f73ff; }
+
+/* ---------- AI-Ассистент ---------- */
+.ai { padding:80px 80px 120px; background:#ffffff; }
+.ai-wrap {
+  display:grid;
+  grid-template-columns:420px 1fr;
+  gap:60px;
+  align-items:center;
+}
+.ai-illustration {
+  width:100%;
+  max-width:420px;
+  height:auto;
+  object-fit:contain;
+  display:block;
+  opacity:0;
+}
+.ai-content { text-align:center; opacity:0; }
+.ai.in-view .ai-illustration { animation: fadeInLeft 0.9s ease-out forwards; }
+.ai.in-view .ai-content { animation: fadeInRight 0.9s ease-out 0.15s forwards; }
+
+.ai-title { font-size:42px; margin:0 0 8px; color:#4b7cff; font-weight:800; }
+.ai-subtitle { font-size:28px; margin:0 0 28px; color:#0a0a0a; font-weight:800; }
+
+.ai-circles {
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:28px;
+  justify-items:center;
+}
+.ai-circle-card {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+}
+.ai-circle-img {
+  width:128px;
+  height:128px;
+  border-radius:50%;
+  background:#a6dcff;
+  border:6px solid #e6f3ff;
+  object-fit:cover;
+  box-shadow:0 6px 16px rgba(10, 17, 38, 0.15);
+  opacity:0;
+}
+.ai.in-view .ai-circle-card:nth-child(1) .ai-circle-img { animation: fadeInScale 0.8s ease-out 0.2s forwards; }
+.ai.in-view .ai-circle-card:nth-child(2) .ai-circle-img { animation: fadeInScale 0.8s ease-out 0.35s forwards; }
+.ai.in-view .ai-circle-card:nth-child(3) .ai-circle-img { animation: fadeInScale 0.8s ease-out 0.5s forwards; }
+.ai-note {
+  max-width:260px;
+  background:#101c3a;
+  color:#ffffff;
+  font-size:12px;
+  line-height:1.45;
+  padding:12px 14px;
+  border-radius:10px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* ---------- Достижения ---------- */
+.achievements { padding:80px 80px 120px; text-align:center; background:#ffffff; }
+.ach-title {
+  font-size:30px;
+  font-weight:800;
+  color:#1a2340;
+  margin:0 0 12px;
+  opacity:0;
+}
+.ach-subtitle {
+  font-size:16px;
+  color:#3d4663;
+  max-width:720px;
+  margin:0 auto 48px;
+  line-height:1.6;
+  opacity:0;
+}
+.ach-grid {
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:32px;
+  align-items:start;
+}
+.ach-card {
+  background:#f9fbff;
+  border-radius:16px;
+  padding:28px 22px;
+  text-align:center;
+  opacity:0;
+}
+.achievements.in-view .ach-title { animation: fadeUp 0.8s ease-out forwards; }
+.achievements.in-view .ach-subtitle { animation: fadeUp 0.9s ease-out 0.1s forwards; }
+.achievements.in-view .ach-card { animation: fadeUp 0.8s ease-out forwards; }
+.achievements.in-view .ach-card:nth-child(1) { animation-delay:0.2s; }
+.achievements.in-view .ach-card:nth-child(2) { animation-delay:0.35s; }
+.achievements.in-view .ach-card:nth-child(3) { animation-delay:0.5s; }
+.ach-img {
+  display:block;
+  margin:0 auto 16px;
+  width:100%;
+  max-width:120px;
+  height:auto;
+  object-fit:contain;
+}
+.ach-card-title { font-size:18px; font-weight:800; color:#1a2340; margin:0 0 8px; }
+.ach-card-text { font-size:14px; color:#3a4466; line-height:1.6; }
+
+/* ---------- Футер ---------- */
+.footer { background:#0a1f66; color:#ffffff; padding:28px 24px; }
+.footer-inner {
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.brand { font-size:28px; font-weight:600; }
+.brand span { color:#2f73ff; font-weight:800; }
+.copy { opacity:.9; font-size:14px; }
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 1100px) {
+  .hero {
+    padding:120px 32px 56px;
+    flex-direction:column;
+  }
+  .right-img { width:340px; }
+  .courses { padding:56px 24px; }
+  .ai { padding:56px 24px 80px; }
+  .ai-wrap { grid-template-columns:1fr; }
+  .achievements { padding:56px 24px 80px; }
+  .ach-grid { grid-template-columns:1fr; gap:20px; }
+  .footer-inner { flex-direction:column; align-items:flex-start; }
+  .top-nav-inner { padding:10px 16px; }
+  .top-menu { gap:10px; font-size:13px; }
+}
+
+@media (max-width: 700px) {
+  .hero { padding:110px 20px 56px; }
+  .headline { font-size:22px; }
+  .top-menu { display:none; } /* можно позже сделать бургер-меню */
+}
+.hero-avatars {
+  width: 420px;
+  height: 420px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 18px;
+  animation: fadeInRight 0.9s ease-out 0.2s both;
+}
+
+.hero-avatar {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #ddd;
+}

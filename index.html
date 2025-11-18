@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduNext</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ========= ФИКСИРОВАННОЕ МЕНЮ + ТЕМНАЯ ТЕМА ========= -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <div class="top-logo">Edu<span>Next</span></div>
+
+      <nav class="top-menu">
+        <a href="#hero" data-link="hero">Главная</a>
+        <a href="#courses" data-link="courses">Курсы</a>
+        <a href="#assistant" data-link="assistant">AI-ассистент</a>
+        <a href="#achievements" data-link="achievements">Достижения</a>
+      </nav>
+
+      <button id="themeToggle" class="theme-btn">🌙</button>
+    </div>
+  </header>
+
+  <!-- ========= ФРЕЙМ 1: HERO ========= -->
+  <section class="hero" id="hero">
+    <div class="content">
+      <h1 class="logo">Edu<span>Next</span></h1>
+      <h2 class="headline">Обучение следующего<br>поколения<br>разработчиков и<br>дизайнеров</h2>
+
+      <div class="instructors">
+        <img src="images/1frames(2).png" alt="Инструкторы" class="left-img">
+        <p class="subtext">Лучшие инструкторы в обучении</p>
+      </div>
+
+      <div class="btn-container"><button class="start-btn">Начать обучение →</button></div>
+    </div>
+
+    <div class="hero-avatars">
+  <img src="images/hero-1.png" class="hero-avatar">
+  <img src="images/hero-2.png" class="hero-avatar">
+  <img src="images/hero-3.png" class="hero-avatar">
+  <img src="images/hero-4.png" class="hero-avatar">
+</div>
+  </section>
+
+  <!-- ========= ФРЕЙМ 2: КУРСЫ + ВЛИЯНИЕ ========= -->
+  <section class="courses" id="courses" data-animate-section>
+    <h2 class="section-title">Вводные <span>Курсы</span></h2>
+    <p class="section-subtitle">
+      Начните обучение с курсов для начинающих, призванных заложить прочную основу
+      в области разработки и дизайна (опыт не требуется).
+    </p>
+
+    <div class="course-grid">
+      <div class="course-card">
+        <img src="images/2frames.png" alt="Место для изображения" class="course-img">
+        <div class="badge-row"><span class="badge">BEGINNER</span><span class="badge badge-outline">UI/UX</span></div>
+        <h3 class="course-title">Теория цвета</h3>
+        <p class="course-desc">Узнайте, как цвет влияет на дизайн и эмоции.</p>
+      </div>
+
+      <div class="course-card">
+        <img src="images/2frames.png" alt="Место для изображения" class="course-img">
+        <div class="badge-row"><span class="badge">BEGINNER</span><span class="badge badge-outline">FRONT-END</span></div>
+        <h3 class="course-title">HTML5/CSS3</h3>
+        <p class="course-desc">Освойте структуру страниц и современные стили.</p>
+      </div>
+
+      <div class="course-card">
+        <img src="images/2frames.png" alt="Место для изображения" class="course-img">
+        <div class="badge-row"><span class="badge">BEGINNER</span><span class="badge badge-outline">SOFTWARE</span></div>
+        <h3 class="course-title">Введение в Python</h3>
+        <p class="course-desc">Изучите основы синтаксиса и создайте первое приложение.</p>
+      </div>
+
+      <div class="course-card">
+        <img src="images/2frames.png" alt="Место для изображения" class="course-img">
+        <div class="badge-row"><span class="badge">BEGINNER</span><span class="badge badge-outline">THEORY/AI</span></div>
+        <h3 class="course-title">Линейная алгебра</h3>
+        <p class="course-desc">Познайте векторы и матрицы для анализа данных.</p>
+      </div>
+    </div>
+
+    <!-- Блок влияния -->
+    <div class="impact">
+      <div class="impact-header">Наше влияние на данный момент</div>
+      <div class="impact-stats">
+        <div class="stat"><span class="number">+7k</span><br>Студентов</div>
+        <div class="stat"><span class="number">36</span><br>Курсов</div>
+        <div class="stat"><span class="number">+13</span><br>Инструкторов</div>
+        <div class="stat"><span class="number">9</span><br>Сертификатов</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= ФРЕЙМ 3: AI-Ассистент ========= -->
+  <section class="ai" id="assistant" data-animate-section>
+    <div class="ai-wrap">
+      <img src="images/3frames.png" alt="AI ассистент" class="ai-illustration">
+
+      <div class="ai-content">
+        <h2 class="ai-title">AI-ассистент</h2>
+        <h3 class="ai-subtitle">Ваш персональный наставник</h3>
+
+        <div class="ai-circles">
+          <div class="ai-circle-card">
+            <img src="images/3circles-1.png" alt="Иконка 1" class="ai-circle-img">
+            <div class="ai-note">Проверяет домашние задания и даёт обратную связь.</div>
+          </div>
+          <div class="ai-circle-card">
+            <img src="images/3circles-2.png" alt="Иконка 2" class="ai-circle-img">
+            <div class="ai-note">Отвечает на вопросы в реальном времени, как репетитор.</div>
+          </div>
+          <div class="ai-circle-card">
+            <img src="images/3circles-3.png" alt="Иконка 3" class="ai-circle-img">
+            <div class="ai-note">Подбирает дополнительные материалы под ваш уровень.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= ФРЕЙМ 4: ДОСТИЖЕНИЯ ========= -->
+  <section class="achievements" id="achievements" data-animate-section>
+    <h2 class="ach-title">Система достижений для повышения мотивации</h2>
+    <p class="ach-subtitle">
+      Учебный процесс сопровождается элементами геймификации, которые помогают
+      поддерживать интерес и стимулировать регулярное обучение.
+    </p>
+
+    <div class="ach-grid">
+      <div class="ach-card">
+        <img src="images/4frames-1.png" alt="Достижения" class="ach-img">
+        <h3 class="ach-card-title">Достижения</h3>
+        <p class="ach-card-text">Студенты получают значки и награды за успешное выполнение заданий и прохождение курсов.</p>
+      </div>
+      <div class="ach-card">
+        <img src="images/4frames-2.png" alt="Уровни прогресса" class="ach-img">
+        <h3 class="ach-card-title">Уровни прогресса</h3>
+        <p class="ach-card-text">Пошаговое развитие: от новичка до эксперта. Каждый уровень открывает доступ к новым эксклюзивным материалам.</p>
+      </div>
+      <div class="ach-card">
+        <img src="images/4frames-3.png" alt="Рейтинги" class="ach-img">
+        <h3 class="ach-card-title">Рейтинги и лидерборды</h3>
+        <p class="ach-card-text">Система рейтингов позволяет отслеживать успехи, сравнивать результаты и участвовать в здоровой конкуренции.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= ФУТЕР ========= -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="brand">Edu<span>Next</span></div>
+      <div class="copy">© 2025 EduNext. Все права защищены.</div>
+    </div>
+  </footer>
+
+  <!-- ========= СКРИПТЫ: ТЁМНАЯ ТЕМА + СКРОЛЛ-АНИМАЦИИ + СКРОЛЛ К КУРСАМ + ACTIVE LINK ========= -->
+  <script>
+    // Тёмная/светлая тема
+    const toggleBtn = document.getElementById("themeToggle");
+    const body = document.body;
+
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark");
+      toggleBtn.textContent = "☀️";
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      if (body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "☀️";
+      } else {
+        localStorage.setItem("theme", "light");
+        toggleBtn.textContent = "🌙";
+      }
+    });
+
+    // Плавный скролл по навигации
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener("click", function(e){
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth"
+        });
+      });
+    });
+
+    // Плавный скролл от кнопки "Начать обучение" ко второму фрейму
+    const startBtn = document.querySelector('.start-btn');
+    const coursesSection = document.querySelector('.courses');
+    if (startBtn && coursesSection) {
+      startBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        coursesSection.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    // Анимация секций при появлении в зоне видимости
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('[data-animate-section]').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Подсветка активного пункта меню (scroll spy)
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".top-menu a");
+
+    const spyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute("id");
+          navLinks.forEach(link => {
+            if (link.getAttribute("data-link") === id) {
+              link.classList.add("active");
+            } else {
+              link.classList.remove("active");
+            }
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    sections.forEach(sec => spyObserver.observe(sec));
+  </script>
+
+</body>
+</html>
