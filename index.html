@@ -60,6 +60,7 @@
         <div class="badge-row"><span class="badge">BEGINNER</span><span class="badge badge-outline">UI/UX</span></div>
         <h3 class="course-title">Теория цвета</h3>
         <p class="course-desc">Узнайте, как цвет влияет на дизайн и эмоции.</p>
+        <button class="course-more-btn" data-course="color">Подробнее →</button>
       </div>
 
       <div class="course-card">
@@ -67,6 +68,7 @@
         <div class="badge-row"><span class="badge">BEGINNER</span><span class="badge badge-outline">FRONT-END</span></div>
         <h3 class="course-title">HTML5/CSS3</h3>
         <p class="course-desc">Освойте структуру страниц и современные стили.</p>
+        <button class="course-more-btn" data-course="htmlcss">Подробнее →</button>
       </div>
 
       <div class="course-card">
@@ -74,6 +76,7 @@
         <div class="badge-row"><span class="badge">BEGINNER</span><span class="badge badge-outline">SOFTWARE</span></div>
         <h3 class="course-title">Введение в Python</h3>
         <p class="course-desc">Изучите основы синтаксиса и создайте первое приложение.</p>
+        <button class="course-more-btn" data-course="python">Подробнее →</button>
       </div>
 
       <div class="course-card">
@@ -81,6 +84,7 @@
         <div class="badge-row"><span class="badge">BEGINNER</span><span class="badge badge-outline">THEORY/AI</span></div>
         <h3 class="course-title">Линейная алгебра</h3>
         <p class="course-desc">Познайте векторы и матрицы для анализа данных.</p>
+        <button class="course-more-btn" data-course="linear">Подробнее →</button>
       </div>
     </div>
 
@@ -102,8 +106,8 @@
       <img src="images/3frames.png" alt="AI ассистент" class="ai-illustration">
 
       <div class="ai-content">
-        <h2 class="ai-title">AI-ассистент</h2>
-        <h3 class="ai-subtitle">Ваш персональный наставник</h3>
+        <h2 class="ai-title">Ваш персональный ассистент</h2>
+        <h3 class="ai-subtitle">Помогает в обучении и выборе курсов</h3>
 
         <div class="ai-circles">
           <div class="ai-circle-card">
@@ -118,7 +122,20 @@
             <img src="images/3circles-3.png" alt="Иконка 3" class="ai-circle-img">
             <div class="ai-note">Подбирает дополнительные материалы под ваш уровень.</div>
           </div>
+        
+        <div class="ai-chat">
+          <div class="ai-chat-header">Спросите ассистента о курсах</div>
+          <div class="ai-chat-window" id="ai-chat-window">
+            <div class="ai-chat-message ai-chat-message-bot">
+              Привет! Я ассистент EduNext. Спроси меня, какой курс тебе подойдёт, или уточни, чему ты хочешь научиться 🙂
+            </div>
+          </div>
+          <form class="ai-chat-form" id="ai-chat-form">
+            <input type="text" id="ai-chat-input" class="ai-chat-input" placeholder="Например: «Хочу выучить верстку»" autocomplete="off">
+            <button type="submit" class="ai-chat-send">Отправить</button>
+          </form>
         </div>
+</div>
       </div>
     </div>
   </section>
@@ -150,7 +167,19 @@
     </div>
   </section>
 
-  <!-- ========= ФУТЕР ========= -->
+  
+  <!-- Модальное окно с описанием курсов -->
+  <div class="course-modal-overlay" id="course-modal">
+    <div class="course-modal">
+      <button class="course-modal-close" id="course-modal-close">✕</button>
+      <h3 class="course-modal-title" id="course-modal-title"></h3>
+      <p class="course-modal-level" id="course-modal-level"></p>
+      <h4>Чему вы научитесь:</h4>
+      <ul class="course-modal-list" id="course-modal-list"></ul>
+    </div>
+  </div>
+
+<!-- ========= ФУТЕР ========= -->
   <footer class="footer">
     <div class="footer-inner">
       <div class="brand">Edu<span>Next</span></div>
@@ -234,7 +263,167 @@
     }, { threshold: 0.5 });
 
     sections.forEach(sec => spyObserver.observe(sec));
-  </script>
+  
+    // ---- Модальные окна по курсам ----
+    const courseData = {
+      color: {
+        title: "Теория цвета",
+        level: "BEGINNER • UI/UX",
+        points: [
+          "Поймёте психологию цвета и его влияние на пользователя.",
+          "Научитесь подбирать гармоничные цветовые палитры.",
+          "Разберётесь с контрастом, акцентами и читаемостью.",
+          "Сможете создавать визуально цельные интерфейсы."
+        ]
+      },
+      htmlcss: {
+        title: "HTML5 / CSS3",
+        level: "BEGINNER • FRONT-END",
+        points: [
+          "Освоите базовую структуру HTML-документа.",
+          "Научитесь верстать адаптивные страницы.",
+          "Поймёте, как работать с шрифтами, отступами и сетками.",
+          "Создадите свой первый лендинг с нуля."
+        ]
+      },
+      python: {
+        title: "Введение в Python",
+        level: "BEGINNER • SOFTWARE",
+        points: [
+          "Разберётесь с синтаксисом языка и базовыми типами данных.",
+          "Научитесь писать небольшие скрипты и функции.",
+          "Поймёте, как работать с условиями и циклами.",
+          "Сделаете своё первое консольное приложение."
+        ]
+      },
+      linear: {
+        title: "Линейная алгебра",
+        level: "BEGINNER • THEORY / AI",
+        points: [
+          "Научитесь работать с векторами и матрицами.",
+          "Поймёте, что такое линейные преобразования.",
+          "Увидите, как линал используется в машинном обучении.",
+          "Сформируете базу для дальнейшего изучения Data Science."
+        ]
+      }
+    };
+
+    const modalOverlay = document.getElementById("course-modal");
+    const modalTitle = document.getElementById("course-modal-title");
+    const modalLevel = document.getElementById("course-modal-level");
+    const modalList = document.getElementById("course-modal-list");
+    const modalClose = document.getElementById("course-modal-close");
+
+    document.querySelectorAll(".course-more-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const key = btn.dataset.course;
+        const data = courseData[key];
+        if (!data) return;
+
+        modalTitle.textContent = data.title;
+        modalLevel.textContent = data.level;
+
+        modalList.innerHTML = "";
+        data.points.forEach(p => {
+          const li = document.createElement("li");
+          li.textContent = p;
+          modalList.appendChild(li);
+        });
+
+        modalOverlay.classList.add("open");
+      });
+    });
+
+    modalClose.addEventListener("click", () => {
+      modalOverlay.classList.remove("open");
+    });
+
+    modalOverlay.addEventListener("click", (e) => {
+      if (e.target === modalOverlay) {
+        modalOverlay.classList.remove("open");
+      }
+    });
+
+    // ---- Простейший AI-чат ассистента на фронте ----
+    const chatForm = document.getElementById("ai-chat-form");
+    const chatInput = document.getElementById("ai-chat-input");
+    const chatWindow = document.getElementById("ai-chat-window");
+
+    function addMessage(text, from = "bot") {
+      if (!chatWindow) return;
+      const div = document.createElement("div");
+      div.classList.add("ai-chat-message");
+      div.classList.add(from === "user" ? "ai-chat-message-user" : "ai-chat-message-bot");
+      div.textContent = text;
+      chatWindow.appendChild(div);
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    
+    function getBotReply(message) {
+      const msg = message.toLowerCase();
+
+      // Курс по верстке
+      if (msg.includes("html") || msg.includes("css") || msg.includes("верстк")) {
+        return "Для старта с верстки подойдёт курс по HTML/CSS. На нём вы научитесь собирать адаптивные лендинги и понимать структуру сайта.";
+      }
+
+      // Курс по Python
+      if (msg.includes("python") || msg.includes("питон")) {
+        return "Курс по Python поможет вам освоить базовый синтаксис, условия, циклы и работу с данными — хороший фундамент для backend и анализа данных.";
+      }
+
+      // Теория цвета и дизайн
+      if (msg.includes("цвет") || msg.includes("ui") || msg.includes("дизайн")) {
+        return "Курс по теории цвета и UI подойдёт, если вы хотите делать красивые интерфейсы и понимать, как цвет влияет на восприятие.";
+      }
+
+      // Линейная алгебра
+      if (msg.includes("алгебр") || msg.includes("линейн") || msg.includes("линал")) {
+        return "Линейная алгебра нужна всем, кто планирует заниматься анализом данных и AI. Курс даст базу по векторам, матрицам и преобразованиям.";
+      }
+
+      // Вопросы про выбор курса и старт
+      if (msg.includes("какой курс") || msg.includes("с чего начать") || msg.includes("новичок")) {
+        return "Если вы новичок, начните с базового курса HTML/CSS или теории цвета — так вы быстро увидите результат и поймёте, что вам ближе.";
+      }
+
+      // Достижения, значки, награды
+      if (msg.includes("достижен") || msg.includes("значк") || msg.includes("награ")) {
+        return "Система достижений выдаёт вам значки и награды за выполненные задания и прохождение модулей. Это помогает отслеживать прогресс и даёт приятное чувство движения вперёд.";
+      }
+
+      // Уровни прогресса
+      if (msg.includes("уровн") || msg.includes("прогресс") || msg.includes("ступен")) {
+        return "Уровни прогресса строятся от новичка до эксперта. С каждым уровнем вы открываете доступ к новым материалам и заданиям повышенной сложности — это по сути ваша внутренняя прокачка в системе.";
+      }
+
+      // Рейтинги и лидерборды
+      if (msg.includes("рейтинг") || msg.includes("лидерборд") || msg.includes("таблица лидеров") || msg.includes("соревнов")) {
+        return "Рейтинги и лидерборды позволяют сравнивать свои результаты с другими студентами. Они не про давление, а про здоровую конкуренцию и дополнительную мотивацию не бросать обучение.";
+      }
+
+      // Геймификация / мотивация
+      if (msg.includes("мотивац") || msg.includes("геймификац") || msg.includes("интерес")) {
+        return "Мы добавили элементы геймификации: значки, уровни, рейтинги и прогресс. Всё это помогает держать интерес к обучению и регулярно возвращаться к занятиям.";
+      }
+
+      return "Я могу подсказать по курсам (HTML/CSS, Python, теория цвета, линейная алгебра), а также рассказать про систему достижений, уровни прогресса и рейтинги. Расскажите, что именно вас интересует.";
+    }
+
+
+    if (chatForm && chatInput) {
+      chatForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const value = chatInput.value.trim();
+        if (!value) return;
+        addMessage(value, "user");
+        const reply = getBotReply(value);
+        setTimeout(() => addMessage(reply, "bot"), 300);
+        chatInput.value = "";
+      });
+    }
+</script>
 
 </body>
 </html>
