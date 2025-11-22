@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Регистрация | EduNext</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="auth-page">
+
+  <div class="auth-wrapper">
+    <h1 class="auth-title">Регистрация</h1>
+
+    <button class="auth-google-btn" type="button">
+      <span class="google-icon">G</span>
+      <span>Регистрация через Google</span>
+    </button>
+
+    <div class="auth-divider">или с помощью почты</div>
+
+    <form class="auth-form" action="#" method="post">
+      <div>
+        <label class="auth-label" for="email">Почта</label>
+        <input class="auth-input" type="email" id="email" name="email" placeholder="example@mail.com" required />
+      </div>
+
+      <div>
+        <label class="auth-label" for="password">Пароль</label>
+        <div class="auth-input-wrap">
+          <input class="auth-input" type="password" id="password" name="password" placeholder="Введите пароль" required />
+          <span class="auth-eye">👁</span>
+        </div>
+      </div>
+
+      <label class="auth-remember">
+        <input type="checkbox" name="remember" checked />
+        <span>Запомнить меня</span>
+      </label>
+
+      <button class="auth-submit" type="submit">Зарегистрироваться</button>
+    </form>
+
+    <div class="auth-bottom">
+      Уже есть аккаунт?
+      <a href="login.html">Войти</a>
+    </div>
+  </div>
+
+</body>
+</html>
